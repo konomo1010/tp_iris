@@ -11,14 +11,13 @@ func init() {
 	loadConfiguration()
 }
 
-//
 func loadConfiguration() {
-	viper.SetConfigName("application")     // name of config file (without extension)
-	viper.SetConfigType("yaml")       // REQUIRED if the config file does not have the extension in the name
+	viper.SetConfigName("application") // name of config file (without extension)
+	viper.SetConfigType("yaml")        // REQUIRED if the config file does not have the extension in the name
 	//viper.AddConfigPath("/etc/app/")  // path to look for the config file in
 	//viper.AddConfigPath("$HOME/.app") // call multiple times to add many search paths
-	viper.AddConfigPath("./config")          // optionally look for config in the working directory
-	err := viper.ReadInConfig()       // Find and read the config file
+	viper.AddConfigPath("./")   // optionally look for config in the working directory
+	err := viper.ReadInConfig() // Find and read the config file
 	if err := viper.ReadInConfig(); err != nil {
 		if _, ok := err.(viper.ConfigFileNotFoundError); ok {
 		} else {
@@ -32,20 +31,20 @@ func loadConfiguration() {
 	}
 }
 
-
-
-
 // C is the configuration of the app.
 var C = struct {
-	Iris iris.Configuration
+	Iris  iris.Configuration
 	MySQL struct {
-		User string `yaml:"user"`
-		Passwd string
+		Host     string `yaml:"host"`
+		Port     string `yaml:"port"`
+		User     string `yaml:"user"`
+		Passwd   string `yaml:"password"`
+		Database string `yaml:"database"`
 	}
 
 	Log struct {
 		File string `yaml:"file"`
-		Ac accesslog.AccessLog
+		Ac   accesslog.AccessLog
 	}
 }{
 	Iris: iris.DefaultConfiguration(),

@@ -14,7 +14,6 @@ func init() {
 	Router.UseRouter(recover.New())
 }
 
-
 func SetupRouter() *iris.Application {
 	// CORS 跨域资源共享
 	crs := cors.New(cors.Options{
@@ -29,7 +28,7 @@ func SetupRouter() *iris.Application {
 
 	v1 := Router.Party("/v1").AllowMethods(iris.MethodOptions) // <- 对于预检很重要。
 	{
-		v1.Get("/info", controller.Info)
+		v1.Get("/meallfields", controller.GetMeAllFields)
 	}
 
 	return Router
