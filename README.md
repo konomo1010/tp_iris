@@ -22,4 +22,32 @@ GOROOT='/opt/go'
 
 ```
 
+```cmd
+.
+├── application.yaml
+├── application.yaml.bak
+├── config
+│   └── config.go
+├── controller
+│   └── getMeAllFields.go
+├── databases
+│   └── mysql.go
+├── go.mod
+├── go.sum
+├── log
+│   └── log.go
+├── main.go
+├── model
+│   └── MarketEmotionSQL.go
+├── README.md
+└── router
+    └── router.go
+    
+    
+databases下为数据库初始化链接
+model: 数据库操作
+controller: 业务逻辑处理
+
+```
+
 # 使用依赖注入（dependency injection）
