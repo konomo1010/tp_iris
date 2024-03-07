@@ -17,6 +17,18 @@ go env -w GOROOT="D:\Program Files\Go"
 go env -w GOMODCACHE=D:\projects\gopath\pkg\mod
 
 
+linux :
+GOENV=/root/.config/go/env
+GOPATH=/root/go
+go env -w GO111MODULE=on
+go env -w GOCACHE=/root/go/cache
+go env -w GOPROXY=https://goproxy.cn,direct
+go env -w GOROOT=/opt/go
+go env -w GOMODCACHE=/root/go/pkg/mod
+
+
+
+
 GOENV='/root/.config/go/env'
 GOCACHE='/root/.cache/go-build'
 GOMODCACHE='/root/go/pkg/mod'
